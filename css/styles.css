@@ -1,0 +1,268 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+:root {
+  --header-height: 60px;
+  min-width: 320px;
+}
+
+.wrapper {
+  max-width: 800px;
+  margin: 10px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+
+  /* grid-gap: 1px; */
+}
+
+.header {
+  color: white;
+  border-radius: 15px 15px 0 0;
+  height: var(--header-height);
+  background-color: gray;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.header__icon {
+  width: 2.125rem;
+  height: 2.125rem;
+  object-fit: contain;
+  margin: 0.5rem 0.7rem;
+  filter: drop-shadow(0 0 4px white);
+  transition: filter 0.2s ease-in-out;
+  animation: pulse 2s infinite;
+}
+.header__icon:hover {
+  cursor: pointer;
+}
+
+@keyframes pulse {
+  0% {
+    filter: drop-shadow(0 0 8px white);
+  }
+  50% {
+    filter: drop-shadow(0 0 2px white);
+  }
+  100% {
+    filter: drop-shadow(0 0 8px white);
+  }
+}
+.header__title {
+  font-size: 20px;
+}
+
+main {
+  background-color: lightgray;
+  border-left: gray 1.5px solid;
+  border-right: gray 1.5px solid;
+  position: relative;
+}
+
+.container_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 240px;
+}
+
+.container_right {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  background-color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-family: "Prompt", sans-serif;
+  font-size: 15px;
+  height: 300px;
+  width: 100%;
+}
+
+.cardTitle {
+  min-width: 300px;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  font-family: "Ubuntu", sans-serif;
+}
+
+.cardTitle__icon {
+  height: 3rem;
+  border-radius: 15px;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.cardTitle__title {
+  color: black;
+  margin-left: 0.3rem;
+  margin-right: 1rem;
+  font-size: 1.3rem;
+  text-transform: capitalize;
+}
+
+.cardImage {
+  height: 200px;
+  margin: auto;
+  position: absolute;
+  bottom: 50%;
+}
+.stats {
+  text-align: center;
+  overflow: hidden;
+}
+.cardImage__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stats__title {
+  font-size: 20px;
+  color: rgb(119, 119, 119);
+}
+.baseStat {
+  font-size: 15px;
+  color: rgb(119, 119, 119);
+  text-transform: capitalize;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: auto;
+  overflow: hidden;
+}
+
+.footer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  border-radius: 0 0 12px 12px;
+  background-color: white;
+  border: 1px solid gray;
+}
+
+.footer__title {
+  margin: 10px auto;
+  text-align: center;
+  width: 40%;
+}
+
+.pokeBottom {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  margin: auto;
+  gap: 10px;
+}
+
+.pokeBlack {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  margin: auto;
+  justify-content: center;
+  background-color: lightgray;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.pokeBlack:hover {
+  background-color: gray;
+  transform: scale(1.1);
+}
+
+.pokeBlack__img:hover {
+  transform: rotateY(360deg);
+  position: relative;
+  color: #262626;
+  transition: 0.5s;
+  z-index: 3;
+}
+
+.pokeBlack__img {
+  height: 80px;
+  width: 50px;
+}
+
+@media screen and (min-width: 500px) {
+  .wrapper {
+    margin: 20px auto;
+  }
+
+  .header,
+  .footer,
+  main {
+    grid-column: 1 / -1;
+    clear: both;
+  }
+
+  main {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  .container_right {
+    width: 40%;
+  }
+  .container_left {
+    height: 300px;
+  }
+
+  .cardImage {
+    position: static;
+  }
+
+  .imagePK {
+    top: 0;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .pokeBottom {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  }
+
+  .titleFooter {
+    margin-right: 5rem;
+  }
+
+  .containerFooter {
+    display: flex;
+    align-items: center;
+    object-fit: scale-down;
+    justify-content: space-between;
+  }
+
+  .footerButtoms {
+    display: flex;
+  }
+}
+
+.wrapper > * {
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+@supports (display: grid) {
+  .wrapper > * {
+    width: auto;
+    margin: 0;
+  }
+}
+.isDisabled {
+  pointer-events: none;
+  opacity: 0.5;
+}

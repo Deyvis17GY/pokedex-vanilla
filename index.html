@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=no"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Supermercado+One&family=Ubuntu:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Prompt&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+      integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/animacion.css" />
+
+    <title>PokeDex</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header class="header">
+        <img
+          class="header__icon"
+          id="pokeHeader"
+          src="images/PokIcon.svg"
+          alt=""
+          title="Elegir un pokemon"
+        />
+        <h1 class="header__title">POKEDEX</h1>
+      </header>
+
+      <main>
+        <div class="container_left">
+          <figure class="cardTitle">
+            <img
+              class="cardTitle__icon"
+              id="pokeIcon"
+              src="images/fire_icon-icons.com_70969.png"
+              alt="iconTypePokemon"
+            />
+            <figcaption class="cardTitle__title">CHARIZARD</figcaption>
+          </figure>
+
+          <figure class="cardImage">
+            <img class="cardImage__img" src="images/Mewtow.png" alt="pokemon" />
+          </figure>
+        </div>
+
+        <div class="container_right">
+          <article class="stats">
+            <h3 class="stats__title">NO.</h3>
+            <p class="baseStat" id="pokeOrder">100</p>
+          </article>
+          <article class="stats">
+            <h3 class="stats__title">LEVEL</h3>
+            <p class="baseStat" id="pokeLevel">FIRE</p>
+          </article>
+          <article class="stats">
+            <h3 class="stats__title">TYPE</h3>
+            <p class="baseStat" id="pokeType">1.7m</p>
+          </article>
+          <article class="stats">
+            <h3 class="stats__title">ABILITY</h3>
+            <p class="baseStat" id="pokeAbility">19.0kg</p>
+          </article>
+          <article class="stats">
+            <h3 class="stats__title">HEIGHT</h3>
+            <p class="baseStat" id="pokeHeight">45m.</p>
+          </article>
+          <article class="stats">
+            <h3 class="stats__title">WEIGHT</h3>
+            <p class="baseStat" id="pokeWeight">142kg.</p>
+          </article>
+        </div>
+      </main>
+
+      <footer class="footer">
+        <h3 class="footer__title">OTHERS</h3>
+
+        <div class="pokeBottom">
+          <figure class="pokeBlack">
+            <img
+              class="pokeBlack__img"
+              src="images/sqBlack.png"
+              onmouseover="this.src='images/sq.png'"
+              onmouseout="this.src='images/sqBlack.png'"
+              alt="iconBlack"
+            />
+          </figure>
+          <figure class="pokeBlack">
+            <img
+              class="pokeBlack__img"
+              src="images/RaichuBlack.png"
+              onmouseover="this.src='images/Raichu.png'"
+              onmouseout="this.src='images/RaichuBlack.png'"
+              alt="iconBlack"
+            />
+          </figure>
+          <figure class="pokeBlack">
+            <img
+              class="pokeBlack__img"
+              src="images/bbBlack.png"
+              onmouseover="this.src='images/bb.png'"
+              onmouseout="this.src='images/bbBlack.png'"
+              alt="iconBlack"
+            />
+          </figure>
+          <figure class="pokeBlack">
+            <img
+              class="pokeBlack__img"
+              src="images/ducBlack.png"
+              onmouseover="this.src='images/duc.png'"
+              onmouseout="this.src='images/ducBlack.png'"
+              alt="iconBlack"
+            />
+          </figure>
+        </div>
+      </footer>
+    </div>
+    <div class="center-on-page" id="pokeBallAnimated">
+      <div class="pokeball">
+        <div class="pokeball__button"></div>
+      </div>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>

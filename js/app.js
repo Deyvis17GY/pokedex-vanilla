@@ -4,21 +4,24 @@ let showPokeBall = false
 pokeHeader.disabled = true
 const loadPokemon = async (id) => {
   pokeHeader.disabled = true
-  hiddenPokeBall()
+  showPokeBall = true
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-  if (!response || !showPokeBall) return
+  if (!response) return
+
   const data = await response.json()
   paintPokemon(data)
+  showPokeBall = false
   return data
 }
 
 document.addEventListener("DOMContentLoaded", () => {
   const pokeRandom = getRandomInt(1, 151)
   loadPokemon(pokeRandom)
+  loadMiniPokes()
 })
 
 const paintPokemon = (pokemon) => {
-  if (!pokemon) return
+  if (!pokemon || !showPokeBall) return
   const {
     name,
     sprites: { other, versions },
@@ -27,9 +30,9 @@ const paintPokemon = (pokemon) => {
     types
   } = pokemon
 
-  const pokemonName = document.querySelector(".cardTitle__title")
+  const pokemonName = document.getElementById("pokeName")
 
-  const pokemonImg = document.querySelector(".cardImage__img")
+  const pokemonImg = document.getElementById("pokeImg")
   const pokeOrder = document.getElementById("pokeOrder")
   const pokeLevel = document.getElementById("pokeLevel")
   const pokeType = document.getElementById("pokeType")
@@ -71,13 +74,34 @@ pokeHeader.addEventListener("click", () => {
   pokeBallAnimated.style.display = "flex"
   pokeHeader.classList.add("isDisabled")
   const pokeRandom = getRandomInt(1, 151)
-  loadPokemon(pokeRandom)
+  hiddenPokeBall()
+  setTimeout(() => {
+    loadPokemon(pokeRandom)
+    loadMiniPokes()
+  }, 1000)
 })
 
 const hiddenPokeBall = () => {
-  console.debug("hiddenPokeBall", showPokeBall)
   setTimeout(() => {
     pokeBallAnimated.style.display = "none"
-  }, 1000)
-  showPokeBall = true
+    showPokeBall = true
+  }, 1200)
+}
+
+const pokeGetImages = (number) => {
+  return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${number}.png`
+}
+
+const loadMiniPokes = () => {
+  for (let i = 1; i <= 4; i++) {
+    const pokes = document.getElementById("poke" + i)
+    const randomNumber = getRandomInt(1, 151)
+    pokes.src = pokeGetImages(randomNumber)
+
+    pokes.addEventListener("click", () => {
+      const getIdSrc = pokes.src.split("/")
+      const id = getIdSrc[getIdSrc.length - 1].split(".")[0]
+      loadPokemon(id)
+    })
+  }
 }

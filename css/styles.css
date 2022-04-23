@@ -84,7 +84,7 @@ main {
   width: 70%;
 }
 
-.card__title {
+.card__figure {
   min-width: 100%;
   background-color: white;
   display: flex;
@@ -92,16 +92,17 @@ main {
   justify-content: center;
   border-radius: 10px;
   font-family: "Ubuntu", sans-serif;
+  margin: 10px 0;
 }
 
-.card__title-icon {
+.card__icon {
   height: 3rem;
   border-radius: 15px;
   cursor: pointer;
   padding: 0.5rem;
 }
 
-.card__title-name {
+.card__caption {
   color: black;
   font-size: 1.3rem;
   text-transform: capitalize;
@@ -126,7 +127,7 @@ main {
   height: 100%;
   object-fit: contain;
 }
-.stats__general-title {
+.stats__title {
   font-size: 17px;
   color: rgb(119, 119, 119);
   width: 50%;
@@ -134,7 +135,7 @@ main {
   font-weight: 500;
   margin: 10px;
 }
-.stats__general-base {
+.stats__base {
   font-size: 17px;
   color: rgb(119, 119, 119);
   text-transform: uppercase;
@@ -168,7 +169,7 @@ main {
   margin: 10px auto;
 }
 
-.footer__minis-poke {
+.footer__figure {
   display: flex;
   align-items: center;
   width: 80px;
@@ -180,17 +181,17 @@ main {
   height: 90px;
 }
 
-.footer__minis-poke:hover {
+.footer__figure:hover {
   background-color: gray;
   transform: scale(1.1);
 }
-.footer__minis-img {
+.footer__img {
   filter: brightness(0) invert(0.1);
   background-blend-mode: darken;
   height: 100%;
 }
 
-.footer__minis-img:hover {
+.footer__img:hover {
   transform: rotateY(360deg);
   position: relative;
   color: #262626;
@@ -224,7 +225,7 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(100px, 2fr));
   }
 
-  .card__title {
+  .card__figure {
     margin: 0;
   }
 
@@ -233,13 +234,13 @@ main {
     overflow: hidden;
     flex-direction: column;
   }
-  .stats__general-title {
+  .stats__title {
     font-size: 15px;
     font-weight: 400;
     text-align: center;
     margin: 10px;
   }
-  .stats__general-base {
+  .stats__base {
     font-size: 17px;
     font-weight: 600;
     margin: 0;
@@ -272,7 +273,7 @@ main {
     display: flex;
   }
 
-  .footer__minis-poke {
+  .footer__figure {
     padding: 5px;
     height: 70px;
     width: 70px;
